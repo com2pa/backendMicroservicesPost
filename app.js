@@ -39,10 +39,5 @@ app.use('/api/refres', usertExtractor, refresRouter)
 app.use('/api/post' ,usertExtractor, postRouter)
 
 
-app.use(express.static(path.resolve(__dirname, 'dist')));
-
-app.get('/*', function(request,response){
-  response.sendFile(path.resolve(__dirname, 'dist', 'index.html' ));
-});
 
 module.exports = app;
