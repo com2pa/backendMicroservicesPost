@@ -22,7 +22,7 @@ postRouter.get('/', async (request, response) => {
    const { title, content } = request.body;
    const user = request.user;
 
-   if (!user) {
+   if (user.role !== 'user') {
      return response.status(401).json({ message: 'User not authorized' });
    }
 
