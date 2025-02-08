@@ -30,7 +30,6 @@ app.use(cookieParser())
 
 // rutas backEnd
 
-app.use('/api/refres', usertExtractor, refresRouter)
 app.use('/api/post' ,usertExtractor, postRouter)
 
 
