@@ -10,6 +10,7 @@ postRouter.get('/', async (request, response) => {
     try {
         // const { user }= request.user
     const posts = await Post.find({}).populate('user','name');
+    // console.log(posts)
     return response.json(posts);
   } catch (error) {
     console.error(error);
