@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const { MONGO_URL } = require('./config');
 
 const postRouter = require('./controllers/posts');
-const { usertExtractor } = require('./middleware/auth');
+
 
 
 
@@ -46,7 +46,7 @@ app.use(cookieParser())
 
 // rutas backEnd
 
-app.use('/api/post' ,usertExtractor, postRouter)
+app.use('/api/post' , postRouter)
 
 
 

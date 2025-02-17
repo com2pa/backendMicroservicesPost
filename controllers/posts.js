@@ -19,14 +19,9 @@ postRouter.get('/', async (request, response) => {
 });
 
 // crear un posts
- postRouter.post('/', usertExtractor, async (request, response) => {   
+ postRouter.post('/', async (request, response) => {   
    const { title, content } = request.body;
-   const user = request.user;
-
-   if (user.role !== 'user') {
-     return response.status(401).json({ message: 'User not authorized' });
-   }
-
+   
    try {
      const userId = await User.findById(user.id); 
      if (!userId) {
