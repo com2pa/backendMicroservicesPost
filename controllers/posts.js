@@ -23,7 +23,7 @@ postRouter.get('/', async (request, response) => {
    const { title, content } = request.body;
    
    try {
-     const userId = await User.findById(request.user._id);
+     const userId = await User.findById(request.user);
      console.log('usuario encontrado',userId)
      if (!userId) {
        return response.status(404).json({ message: 'Usuario no encontrado' });
