@@ -24,7 +24,10 @@ const postRouter = require('./controllers/posts');
 })();
 
 const allowedOrigins = [
-  'https://blog-microservices.onrender.com',
+  'https://blog-microservices.onrender.com', // Frontend
+  'https://micro-post.onrender.com', // Otros microservicios
+  'https://micro-user-bju8.onrender.com',
+  'https://micro-comment.onrender.com',
   'http://localhost:5173',
 ];
 
