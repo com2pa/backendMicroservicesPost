@@ -3,14 +3,11 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
-const cors = require('cors')
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { MONGO_URL } = require('./config');
 
 const postRouter = require('./controllers/posts');
-
-
-
 
 // const morgan=require('morgan')
 // conexion base de datos
@@ -28,7 +25,6 @@ const allowedOrigins = [
   'https://micro-post.onrender.com', // Otros microservicios
   'https://micro-user-bju8.onrender.com',
   'https://micro-comment.onrender.com',
-  'http://localhost:5173',
 ];
 
 const corsOptions = {
@@ -42,16 +38,20 @@ const corsOptions = {
   methods: 'GET,POST,PUT,DELETE',
   credentials: true,
 };
-app.use(cors(corsOptions))
+// app.use(
+//   cors({
+//     origin: '*', // Permite todas las solicitudes (¡no seguro para producción!)
+//     methods: 'GET,POST,PUT,DELETE',
+//     credentials: true,
+//   })
+// );
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 // app.use(morgan('tiny'))
 
 // rutas backEnd
 
-app.use('/api/post' , postRouter)
-
-
-
+app.use('/api/post', postRouter);
 
 module.exports = app;
