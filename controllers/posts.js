@@ -20,11 +20,11 @@ postRouter.get('/', async (request, response) => {
 
 // crear un posts
  postRouter.post('/',usertExtractor, async (request, response) => {   
-   const { title, content } = request.body;
-   const{user}=request.user
+   const { title, content, } = request.body;
+   console.log(title, content, request.user.id);
    
    try {
-     const userId = await User.findById(user.id);
+     const userId = await User.findById(request.user.id);
      console.log('usuario encontrado',userId)
      if (!userId) {
        return response.status(404).json({ message: 'Usuario no encontrado' });
