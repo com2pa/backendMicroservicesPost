@@ -2,7 +2,6 @@ const postRouter = require('express').Router();
 const Post = require('../models/post');
 const User = require('../models/user');
 const Comment =require('../models/comment')
-const { usertExtractor } = require('../middleware/auth');
 
 // obtemos todos los post
 
@@ -19,7 +18,7 @@ postRouter.get('/', async (request, response) => {
 });
 
 // crear un posts
- postRouter.post('/',usertExtractor, async (request, response) => {   
+ postRouter.post('/', async (request, response) => {   
    const { title, content, userId } = request.body;
    console.log(title, content, userId);
    
