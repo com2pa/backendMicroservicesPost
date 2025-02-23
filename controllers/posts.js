@@ -30,7 +30,7 @@ postRouter.get('/', async (request, response) => {
      
      await newPost.save();
 
-     userId.posts.push(newPost._id); 
+     User.posts.push(newPost._id); 
      await userId.save();
 
      return response.status(201).json(newPost);
