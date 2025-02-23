@@ -22,13 +22,7 @@ postRouter.post('/', async (request, response) => {
   const { title, content, userId } = request.body;
   console.log(title, content, userId);
 
-  try {
-    // Buscar el usuario por ID
-    const user = await User.findById(userId);
-    if (!user) {
-      return response.status(404).json({ message: 'Usuario no encontrado' });
-    }
-
+  try {   
     // Crear el nuevo post
     const newPost = new Post({ title, content, user: userId });
     console.log('Nuevo post:', newPost);
