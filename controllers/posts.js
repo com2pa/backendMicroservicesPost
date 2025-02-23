@@ -23,8 +23,8 @@ postRouter.get('/', async (request, response) => {
    console.log(title, content, userId);
    
    try {
-     const userId = await User.findById(userId);
-     console.log('usuario encontrado',userId)
+     const user = await User.findById(userId);
+     console.log('usuario encontrado',user)
      const newPost = new Post({ title, content, user: userId });
      console.log(newPost)
      
